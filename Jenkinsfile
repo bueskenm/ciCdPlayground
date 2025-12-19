@@ -23,11 +23,11 @@ pipeline {
             }
         }
 
-        // stage('integrationtest') {
-        //     steps {
-        //         sh 'yarn test:e2e'
-        //     }
-        // }
+        stage('integrationtest') {
+            steps {
+                sh 'yarn test:e2e'
+            }
+        }
 
         stage('deploy') {
             steps {
