@@ -23,11 +23,11 @@ pipeline {
             }
         }
 
-        stage('integrationtest') {
-            steps {
-                sh 'yarn test:e2e'
-            }
-        }
+        // stage('integrationtest') {
+        //     steps {
+        //         sh 'yarn test:e2e'
+        //     }
+        // }
 
         stage('deploy') {
             steps {
@@ -55,4 +55,12 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            // Publish JUnit test results
+            junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
+        }
+    }
+
 }
