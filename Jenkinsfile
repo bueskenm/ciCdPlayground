@@ -59,7 +59,7 @@ pipeline {
     post {
         always {
             // Publish JUnit test results
-            junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
+            junit '**/reports/**/*.xml'
         }
     }
 
