@@ -19,7 +19,11 @@ pipeline {
 
         stage('build') {
             steps {
-                sh 'yarn build'
+                script {
+                    currentBuild.displayName = "Build - #${currentBuild.number} - ${env.GIT_COMMIT.take(7)}"
+                    currentBuild.description = "This is the build of my CICD workshop fork."
+                    sh 'yarn build'
+                }
             }
         }
 
