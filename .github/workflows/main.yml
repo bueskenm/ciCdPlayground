@@ -33,5 +33,4 @@ jobs:
       
     - name: Publish Test Report
       if: always()
-      with:
-        files: reports/*.xml
+      run: junit '**/reports/**/*.xml'
