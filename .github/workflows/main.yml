@@ -30,3 +30,8 @@ jobs:
       run: yarn build
     - name: Integration tests
       run: yarn test:e2e
+      
+    - name: Publish Test Report
+      if: always()
+      with:
+        files: reports/*.xml
